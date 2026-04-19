@@ -1,0 +1,36 @@
+# 🔒 SECRETS (Most Important)
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# 📦 DEPENDENCIES
+node_modules/
+jspm_packages/
+package-lock.json
+# (Keep package-lock.json if you want exact versioning, 
+# but many developers ignore it to avoid merge conflicts)
+
+# 🛠️ BUILD & LOGS
+dist/
+build/
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ⚙️ SYSTEM FILES
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 🧪 TESTING & COVERAGE
+coverage/
+.nyc_output
+
+# 🚀 DEPLOYMENT SPECIFIC
+.vercel
+.serverless/
