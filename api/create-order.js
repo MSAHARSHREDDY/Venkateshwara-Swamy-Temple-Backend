@@ -1,19 +1,17 @@
 import Razorpay from "razorpay";
 
 export default async function handler(req, res) {
-
-  // ✅ CORS HEADERS (VERY IMPORTANT)
+  // ✅ CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // ✅ HANDLE PREFLIGHT
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method Not Allowed" });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
@@ -31,9 +29,8 @@ export default async function handler(req, res) {
     });
 
     res.status(200).json(order);
-
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Order creation failed" });
   }
 }
